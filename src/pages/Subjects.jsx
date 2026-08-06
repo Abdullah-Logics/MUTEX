@@ -27,7 +27,7 @@ export default function Subjects() {
 
   const results = useMemo(() => {
     const q = term.trim().toLowerCase()
-    if (!q) return { matches: SUBJECTS, others: [], hasTerm: false }
+    if (!q) return { matches: SUBJECTS, docHits: [], hasTerm: false }
     const matches = SUBJECTS.map((s) => ({ s, score: searchScore(s, q) }))
       .filter((r) => r.score >= 0)
       .sort((a, b) => b.score - a.score)
