@@ -3,7 +3,7 @@ import { AnimatePresence, motion as Motion } from "framer-motion"
 import { useTheme } from "../theme/useTheme.js"
 import Icon from "./Icons.jsx"
 
-export default function ThemeSwitcher() {
+export default function ThemeSwitcher({ align = "right" }) {
   const { theme, setTheme, accent, setAccent, ACCENTS } = useTheme()
   const [open, setOpen] = useState(false)
 
@@ -71,7 +71,9 @@ export default function ThemeSwitcher() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -6, scale: 0.96 }}
               transition={{ duration: 0.18 }}
-              className="absolute right-0 top-full z-50 mt-2 w-56 rounded-2xl border border-line bg-surface p-3 shadow-2xl"
+              className={`absolute top-full z-50 mt-2 w-56 rounded-2xl border border-line bg-surface p-3 shadow-2xl ${
+                align === "left" ? "left-0" : "right-0"
+              }`}
             >
               <p className="mb-2 px-1 text-[10px] font-bold uppercase tracking-widest text-faint">
                 Accent color

@@ -112,7 +112,7 @@ export default function Navbar() {
                 className="mt-6 flex items-center gap-4"
               >
                 <div className="sm:hidden">
-                  <ThemeSwitcher />
+                  <ThemeSwitcher align="left" />
                 </div>
                 <Button to="/login" onClick={() => setOpen(false)} icon={<Icon name="shield" size={15} />}>
                   Admin Login
