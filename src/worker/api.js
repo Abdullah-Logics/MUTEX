@@ -48,7 +48,7 @@ async function insertNote(env, body) {
     bytes = new TextEncoder().encode(String(body.content ?? ""))
   }
   if (bytes.length > MAX_UPLOAD_BYTES) {
-    return [413, { error: "File is too large (max 10 MB)" }]
+    return [413, { error: "File is too large (max 40 MB)" }]
   }
   const id = `note-${Date.now().toString(36)}-${crypto.randomUUID().slice(0, 8)}`
   const note = {
@@ -61,7 +61,7 @@ async function insertNote(env, body) {
     type,
     mime: mimeFor(extension),
     size: `${(bytes.length / 1024).toFixed(1)} KB`,
-    date: new Date().toISOString().slice(0, 10),
+    date: String(body.date || new Date().toISOString().slice(0, 10)).slice(0, 10),
   }
   await env.BUCKET.put(`notes/${id}.${extension}`, bytes, {
     httpMetadata: { contentType: note.mime },

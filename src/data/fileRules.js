@@ -7,7 +7,7 @@ export const CODE_EXTENSIONS = [
 
 export const ALLOWED_EXTENSIONS = [...new Set(["pdf", "md", "markdown", ...CODE_EXTENSIONS])]
 
-export const MAX_UPLOAD_BYTES = 10 * 1024 * 1024
+export const MAX_UPLOAD_BYTES = 40 * 1024 * 1024
 
 export function extOf(filename) {
   const m = /\.([a-z0-9]+)$/i.exec(String(filename || ""))

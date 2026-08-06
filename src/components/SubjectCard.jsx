@@ -5,7 +5,7 @@ import Tilt from "./Tilt.jsx"
 import { countDocs, formatDate } from "../data/helpers.js"
 
 export default function SubjectCard({ subject, index = 0 }) {
-  const count = countDocs(subject.id)
+  const count = subject.docs || countDocs(subject.id)
   return (
     <Motion.div
       variants={{

@@ -187,7 +187,7 @@ function DocumentsTab({ data, notes, onDelete }) {
       return
     }
     if (f.size > MAX_UPLOAD_BYTES) {
-      setUploadError("That file is too large — keep files under 10 MB.")
+      setUploadError("That file is too large — keep files under 40 MB.")
       return
     }
     setUploadError("")
