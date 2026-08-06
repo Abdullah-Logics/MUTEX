@@ -23,6 +23,8 @@ function migrate() {
 
 migrate()
 
+execSync("npm run build", { cwd: ROOT, stdio: "inherit", env: ENV })
+
 function run(name, bin, args) {
   const child = spawn(bin, args, {
     cwd: ROOT,
@@ -37,7 +39,7 @@ function run(name, bin, args) {
   return child
 }
 
-const api = run("api", "npx", ["wrangler", "dev", "--port", "8787", "--local"])
+const api = run("api", "npx", ["wrangler", "pages", "dev", "dist", "--port", "8787"])
 const web = run("web", process.execPath, [
   path.join(ROOT, "node_modules", "vite", "bin", "vite.js"),
 ])

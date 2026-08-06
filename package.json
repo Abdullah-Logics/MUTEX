@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "dev:web": "vite",
-    "dev:api": "wrangler dev --port 8787 --local",
+    "dev:api": "wrangler pages dev dist --port 8787",
     "pages:dev": "npm run build && wrangler pages dev dist --port 8788",
     "build": "vite build",
     "preview": "vite preview",
